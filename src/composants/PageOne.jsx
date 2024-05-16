@@ -4,8 +4,8 @@ import '../styles/PageOne.scss';
 
 function PageOne() {
     return (
-        <div className='PageOne'>
-            <div className="background">
+        <div className="PageOne">
+            <div className="background-2">
                 <img src={mountainsImage} alt="Mountains" />
             </div>
         </div>
