@@ -1,0 +1,31 @@
+// Fonts
+
+@font-face {
+    font-family: 'SaoTorpes';
+    src: url('../src/styles/fonts/SaoTorpes.otf')(format('opentype'));
+}
+
+@font-face {
+    font-family: 'Lemon';
+    src: url('../src/styles/fonts/Lemon-Regular.ttf')(format('truetype'));
+}
+
+@font-face {
+    font-family: 'Thunder';
+    src: url('../src/styles/fonts/Thunder-VF.ttf')(format('truetype'));
+}
+
+@font-face {
+    font-family: 'Bowlby';
+    src: url('../src/styles/fonts/BowlbyOneSC-Regular.ttf')(format('truetype'));
+}
+
+// Styles
+html {
+    margin: none;
+    width: 100%;
+
+    body {
+        margin: 0;
+    }
+}
