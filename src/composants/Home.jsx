@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { MotionPathPlugin } from "gsap/MotionPathPlugin";
@@ -8,6 +8,8 @@ import "../styles/Home.scss";
 import Navbar from "./Navbar";
 
 function Home() {
+  const homeRef = useRef(null);
+
   gsap.registerPlugin(MotionPathPlugin, ScrollTrigger);
 
   useEffect(() => {
@@ -41,8 +43,30 @@ function Home() {
     });
   }, []);
 
+  useEffect(() => {
+    const homeElement = homeRef.current;
+
+    gsap.to(".background", {
+      scrollTrigger: {
+        trigger: homeElement,
+        start: "top top",
+        end: "bottom top",
+        scrub: true,
+        pin: true,
+        onEnter: () => window.scrollTo(0, 0),
+        onLeaveBack: () => window.scrollTo(0, 0),
+      },
+      scale: 3,
+      opacity: 0,
+    });
+
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
+  }, []);
+
   return (
-    <div className="Home">
+    <div className="Home" ref={homeRef}>
       <Navbar />
       <div className="text-container">
         <h1>ETIENNE CHAZELLE</h1>

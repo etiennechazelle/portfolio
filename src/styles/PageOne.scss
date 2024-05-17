@@ -1,19 +1,19 @@
 .PageOne {
-    display: flex;
-    height: 100vh;
-    margin: 0;
-    position: relative;
+  display: flex;
+  height: 120vh;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+  margin-top: 50px;
+
+  .background-2 {
+    position: absolute;
     overflow: hidden;
+    bottom: 0;
+    width: 100%;
 
-    .background-2 {
-        position: absolute;
-        overflow: hidden;
-        bottom: 0;
-        width: 100%;
-
-
-        img {
-            width: 100%;
-        }
+    img {
+      width: 100%;
     }
+  }
 }

@@ -5,6 +5,10 @@
     position: relative;
     overflow: hidden;
 
+    .no-scroll {
+        overflow: hidden;
+    }
+
     .text-container {
         h1 {
             position: absolute;
