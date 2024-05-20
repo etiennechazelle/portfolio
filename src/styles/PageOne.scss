@@ -24,23 +24,33 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    height: auto;
+    bottom: 0;
 
     .pointer {
-      height: 20px;
-      width: 20px;
+      height: 30px;
+      width: 30px;
       border-radius: 50%;
-      background-color: #F4F7FF;
+      background-color: #e6ecff;
       display: flex;
       justify-content: center;
       align-items: center;
       cursor: pointer;
-      z-index: 4;
+      z-index: 2;
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        height: 32px;
+        width: 32px;
+        svg {
+          color: #3a3a3a;
+        }
+      }
 
       svg {
         width: 80%;
         height: auto;
-        color: #072164;
+        color: #6a6a6a;
+        transition: all 0.2s ease-in-out;
       }
     }
   }
@@ -67,6 +77,35 @@
     border-radius: 15px;
     backdrop-filter: blur(10px);
     opacity: 0.9;
+
+    .left-arrow,
+    .right-arrow {
+      width: 4em;
+      color: rgb(255, 255, 255);
+      height: auto;
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 3;
+      transition: all 0.2s ease-in-out;
+    }
+
+    .left-arrow:hover {
+      transform: translateY(-50%) translateX(-10%);
+    }
+
+    .right-arrow:hover {
+      transform: translateY(-50%) translateX(10%);
+    }
+
+    .left-arrow {
+      left: -200px;
+    }
+
+    .right-arrow {
+      right: -200px;
+    }
 
     .exit {
       border-radius: 50%;
