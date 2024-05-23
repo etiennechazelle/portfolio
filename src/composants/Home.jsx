@@ -7,10 +7,10 @@ import planeImage from "../images/P1/plane.png";
 import "../styles/Home.scss";
 import Navbar from "./Navbar";
 
+gsap.registerPlugin(MotionPathPlugin, ScrollTrigger);
+
 function Home() {
   const homeRef = useRef(null);
-
-  gsap.registerPlugin(MotionPathPlugin, ScrollTrigger);
 
   useEffect(() => {
     const plane = document.querySelector(".plane");
@@ -61,7 +61,7 @@ function Home() {
     });
 
     return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);
 
@@ -78,19 +78,8 @@ function Home() {
       <div className="plane-container">
         <img src={planeImage} alt="Plane" className="plane" />
       </div>
-      <svg
-        width="1920"
-        height="400"
-        className="plane-path"
-        style={{ opacity: 0.5 }}
-      >
-        <path
-          className="path"
-          d="M0,450 Q960,50 1920,150"
-          fill="none"
-          stroke="white"
-          strokeWidth={2}
-        />
+      <svg width="1920" height="400" className="plane-path" style={{ opacity: 0.5 }}>
+        <path className="path" d="M0,450 Q960,50 1920,150" fill="none" stroke="white" strokeWidth={2} />
       </svg>
     </div>
   );

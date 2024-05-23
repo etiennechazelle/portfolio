@@ -1,17 +1,32 @@
 import React, { useEffect, useRef, useState } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import mountainsImage from "../images/P2/mountains.png";
 import personne from "../images/P2/personne.png";
 import "../styles/PageOne.scss";
+
+gsap.registerPlugin(ScrollTrigger);
 
 function PageOne() {
   const [contentVisible, setContentVisible] = useState(false);
   const [activePointer, setActivePointer] = useState(null);
   const [imageHeight, setImageHeight] = useState(0);
   const imageRef = useRef(null);
+  const contentRef = useRef(null);
+  const pageRef = useRef(null);
+  const leftArrowRef = useRef(null);
+  const rightArrowRef = useRef(null);
+
+  const pointerStyles = [
+    { top: "23.7%", left: "25.3%" },
+    { top: "28.2%", left: "36.7%" },
+    { top: "37.6%", left: "47.7%" },
+  ];
 
   const handlePointerClick = (pointerId) => {
     setActivePointer(pointerId);
     setContentVisible(true);
+    gsap.fromTo(contentRef.current, { x: "100%" }, { x: "0%", duration: 0.5, ease: "power2.out" });
   };
 
   const exitContent = () => {
@@ -19,14 +34,61 @@ function PageOne() {
     setActivePointer(null);
   };
 
-  // Pointers positions depending on the size of the background image
-  const pointerStyles = [
-    { top: "23.7%", left: "25.3%" },
-    { top: "28.2%", left: "36.7%" },
-    { top: "37.6%", left: "47.7%" },
-  ];
+  const updateContent = (newIndex, direction) => {
+    const newContent = document.createElement("div");
+    newContent.className = "content";
 
-  // Update the height of the pointers div when the image height changes
+    gsap.to(".content", {
+      duration: 0.5,
+      x: direction === "left" ? -2000 : 2000,
+      ease: "power2.in",
+      onComplete: () => {
+        const oldContent = document.querySelector(".content");
+        if (oldContent) oldContent.remove();
+
+        const newContentDetails = document.createElement("div");
+        newContentDetails.className = "content-details";
+        newContentDetails.innerHTML = `
+          <div class="exit">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="1.5"
+              stroke="currentColor"
+              class="w-6 h-6"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+            </svg>
+          </div>
+          <p>${newIndex}</p>`;
+
+        newContent.appendChild(newContentDetails);
+        document.querySelector(".content-container").appendChild(newContent);
+        gsap.fromTo(
+          newContent,
+          { x: direction === "left" ? 2000 : -2000 },
+          { duration: 0.5, x: 0, ease: "power2.out" }
+        );
+        newContent.querySelector(".exit").addEventListener("click", exitContent);
+      },
+    });
+  };
+
+  const handleLeftArrowClick = () => {
+    const index = parseInt(activePointer.split("-")[1], 10);
+    const newIndex = index === 0 ? pointerStyles.length - 1 : index - 1;
+    setActivePointer("pointer-" + newIndex);
+    updateContent(newIndex, "left");
+  };
+
+  const handleRightArrowClick = () => {
+    const index = parseInt(activePointer.split("-")[1], 10);
+    const newIndex = index === pointerStyles.length - 1 ? 0 : index + 1;
+    setActivePointer("pointer-" + newIndex);
+    updateContent(newIndex, "right");
+  };
+
   useEffect(() => {
     const updateImageHeight = () => {
       if (imageRef.current) {
@@ -39,10 +101,8 @@ function PageOne() {
       observer.observe(imageRef.current);
     }
 
-    // Initial update
     updateImageHeight();
 
-    // Cleanup on component unmount
     return () => {
       if (imageRef.current) {
         observer.unobserve(imageRef.current);
@@ -50,8 +110,47 @@ function PageOne() {
     };
   }, []);
 
+  useEffect(() => {
+    const pageElement = pageRef.current;
+    setContentVisible(false);
+
+    gsap.to(".background-2", {
+      scrollTrigger: {
+        trigger: pageElement,
+        start: "top top",
+        end: "bottom top",
+        scrub: true,
+        pin: true,
+      },
+    });
+
+    ScrollTrigger.create({
+      trigger: pageElement,
+      start: "top top",
+      end: "bottom 66%",
+      scrub: true,
+      markers: true,
+      onEnter: () => handlePointerClick("pointer-0"),
+      onLeave: () => handlePointerClick("pointer-1"),
+    });
+
+    ScrollTrigger.create({
+      trigger: pageElement,
+      start: "top top",
+      end: "bottom bottom",
+      scrub: true,
+      markers: true,
+      onEnter: () => handlePointerClick("pointer-1"),
+      onLeaveBack: () => setContentVisible(false),
+    });
+
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, []);
+
   return (
-    <div className="PageOne">
+    <div className="PageOne" ref={pageRef}>
       <div className="background-2">
         <img ref={imageRef} src={mountainsImage} alt="Mountains" />
       </div>
@@ -72,11 +171,7 @@ function PageOne() {
               stroke="currentColor"
               className="w-6 h-6"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M12 4.5v15m7.5-7.5h-15"
-              />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
             </svg>
           </div>
         ))}
@@ -85,8 +180,8 @@ function PageOne() {
         <img src={personne} alt="Personne" />
       </div>
       {contentVisible && (
-        <div className="content">
-          <div className="exit" onClick={exitContent}>
+        <div className="content-container">
+          <div className="left-arrow" onClick={handleLeftArrowClick}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -95,47 +190,37 @@ function PageOne() {
               stroke="currentColor"
               className="w-6 h-6"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M12 4.5v15m7.5-7.5h-15"
-              />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18" />
             </svg>
           </div>
-          <div className="left-arrow">
+          <div className="content" ref={contentRef}>
+            <div className="content-details">
+              <p>{activePointer}</p>
+            </div>
+            <div className="exit" onClick={exitContent}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="currentColor"
+                className="w-6 h-6"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+              </svg>
+            </div>
+          </div>
+          <div className="right-arrow" onClick={handleRightArrowClick}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
-              stroke-width="1.5"
+              strokeWidth="1.5"
               stroke="currentColor"
-              class="w-6 h-6"
+              className="w-6 h-6"
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18"
-              />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
             </svg>
-          </div>
-          <div className="right-arrow">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="w-6 h-6"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"
-              />
-            </svg>
-          </div>
-          <div className="content-details">
-            <p>{activePointer}</p>
           </div>
         </div>
       )}
