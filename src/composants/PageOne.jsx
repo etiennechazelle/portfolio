@@ -114,34 +114,17 @@ function PageOne() {
     const pageElement = pageRef.current;
     setContentVisible(false);
 
-    gsap.to(".background-2", {
+    gsap.to(".PageOne", {
       scrollTrigger: {
         trigger: pageElement,
-        start: "top top",
-        end: "bottom top",
+        start: "top 50%",
+        end: "bottom bottom",
         scrub: true,
         pin: true,
+        markers: true,
       },
-    });
-
-    ScrollTrigger.create({
-      trigger: pageElement,
-      start: "top top",
-      end: "bottom 66%",
-      scrub: true,
-      markers: true,
-      onEnter: () => handlePointerClick("pointer-0"),
-      onLeave: () => handlePointerClick("pointer-1"),
-    });
-
-    ScrollTrigger.create({
-      trigger: pageElement,
-      start: "top top",
-      end: "bottom bottom",
-      scrub: true,
-      markers: true,
-      onEnter: () => handlePointerClick("pointer-1"),
-      onLeaveBack: () => setContentVisible(false),
+      scale: 1.5,
+      opacity: 0,
     });
 
     return () => {
