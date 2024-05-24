@@ -1,38 +1,42 @@
 // Fonts
 
 @font-face {
-    font-family: 'SaoTorpes';
-    src: url('../src/styles/fonts/SaoTorpes.otf')(format('opentype'));
+  font-family: "SaoTorpes";
+  src: url("../src/styles/fonts/SaoTorpes.otf") (format("opentype"));
 }
 
 @font-face {
-    font-family: 'Lemon';
-    src: url('../src/styles/fonts/Lemon-Regular.ttf')(format('truetype'));
+  font-family: "Lemon";
+  src: url("../src/styles/fonts/Lemon-Regular.ttf") (format("truetype"));
 }
 
 @font-face {
-    font-family: 'Thunder';
-    src: url('../src/styles/fonts/Thunder-VF.ttf')(format('truetype'));
+  font-family: "Thunder";
+  src: url("../src/styles/fonts/Thunder-VF.ttf") (format("truetype"));
 }
 
 @font-face {
-    font-family: 'Bowlby';
-    src: url('../src/styles/fonts/BowlbyOneSC-Regular.ttf')(format('truetype'));
+  font-family: "Bowlby";
+  src: url("../src/styles/fonts/BowlbyOneSC-Regular.ttf") (format("truetype"));
 }
 
 // Styles
 
 ::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 html {
-    margin: none;
-    width: 100%;
+  margin: none;
+  width: 100%;
 
-    body {
-        overflow-x: hidden;
-        margin: 0;
+  body {
+    overflow-x: hidden;
+    margin: 0;
+
+    .App > * {
+      height: 100vh;
+      width: 100%;
     }
-
+  }
 }

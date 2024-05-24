@@ -8,7 +8,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 function PageTwo() {
   const pageTwoRef = useRef(null);
-  useEffect(() => {
+  /* useEffect(() => {
     const pageTwo = pageTwoRef.current;
     gsap.to(".background-3", {
       scrollTrigger: {
@@ -17,11 +17,12 @@ function PageTwo() {
         end: "bottom bottom",
         scrub: 1,
         pin: true,
+        pinSpacing: false,
         markers: true,
       },
       left: 0,
     });
-  }, []);
+  }, []); */
   return (
     <div className="PageTwo" ref={pageTwoRef}>
       <div className="background-3">

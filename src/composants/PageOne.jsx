@@ -117,14 +117,22 @@ function PageOne() {
     gsap.to(".PageOne", {
       scrollTrigger: {
         trigger: pageElement,
-        start: "top 50%",
-        end: "bottom bottom",
+        start: "top top",
+        end: "bottom 50%",
         scrub: true,
         pin: true,
         markers: true,
+        onUpdate: (self) => {
+          const progress = self.progress;
+          const scaleValue = 1 + 3 * progress;
+          const opacityValue = 1 - progress;
+          gsap.to(".PageOne", {
+            scale: scaleValue,
+            opacity: opacityValue,
+            duration: 0,
+          });
+        },
       },
-      scale: 1.5,
-      opacity: 0,
     });
 
     return () => {

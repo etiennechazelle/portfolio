@@ -3,6 +3,7 @@ import "./App.scss";
 import Home from "./composants/Home";
 import PageOne from "./composants/PageOne";
 import PageTwo from "./composants/PageTwo";
+import PageThree from "./composants/PageThree";
 import backgroundImage from "./images/background.png";
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
       <Home />
       <PageOne />
       <PageTwo />
+      <PageThree />
     </div>
   );
 }
