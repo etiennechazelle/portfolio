@@ -14,8 +14,6 @@ function PageOne() {
   const imageRef = useRef(null);
   const contentRef = useRef(null);
   const pageRef = useRef(null);
-  const leftArrowRef = useRef(null);
-  const rightArrowRef = useRef(null);
 
   const pointerStyles = [
     { top: "23.7%", left: "25.3%" },
@@ -111,28 +109,29 @@ function PageOne() {
   }, []);
 
   useEffect(() => {
-    const pageElement = pageRef.current;
+    const pageOne = pageRef.current;
     setContentVisible(false);
 
     gsap.to(".PageOne", {
       scrollTrigger: {
-        trigger: pageElement,
+        trigger: pageOne,
         start: "top top",
+        end: "bottom top",
+        scrub: true,
+        pin: true,
+      },
+    });
+
+    gsap.to(".PageOne", {
+      scrollTrigger: {
+        trigger: pageOne,
+        start: "80% 75%",
         end: "bottom 50%",
         scrub: true,
         pin: true,
-        markers: true,
-        onUpdate: (self) => {
-          const progress = self.progress;
-          const scaleValue = 1 + 3 * progress;
-          const opacityValue = 1 - progress;
-          gsap.to(".PageOne", {
-            scale: scaleValue,
-            opacity: opacityValue,
-            duration: 0,
-          });
-        },
       },
+      scale: 1.5,
+      opacity: 0,
     });
 
     return () => {
