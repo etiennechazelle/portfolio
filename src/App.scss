@@ -20,6 +20,16 @@
   src: url("../src/styles/fonts/BowlbyOneSC-Regular.ttf") (format("truetype"));
 }
 
+@font-face {
+  font-family: "Fontspring";
+  src: url("../src/styles/fonts/Fontspring.otf") (format("opentype"));
+}
+
+@font-face {
+  font-family: "Guminert";
+  src: url("../src/styles/fonts/Guminert.ttf") (format("truetype"));
+}
+
 // Styles
 
 ::-webkit-scrollbar {

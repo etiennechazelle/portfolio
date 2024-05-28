@@ -1,0 +1,60 @@
+{
+  "projets": [
+    {
+      "nom": "Tour of Heroes",
+      "technologie": "Angular",
+      "description": "Dans le cadre d’un module de ma formation, j’avais pour mission de créer un site web en utilisant la technologie Angular. Ce site web, intitulé 'Tour of Heroes', permet de faire combattre des héros. Ces héros sont définis depuis des fiches permettant de modifier leurs statistiques, et de les sauvegarder dans une base de données Firebase.",
+      "date": "2023",
+      "image": "tour_of_heroes.png",
+      "type": "Formation"
+    },
+    {
+      "nom": "Demineur",
+      "technologie": "",
+      "description": "",
+      "date": "2024",
+      "image": "demineur.png",
+      "type": "Formation"
+    },
+    {
+      "nom": "API Node",
+      "technologie": "",
+      "description": "",
+      "date": "2024",
+      "image": "api_node.png",
+      "type": "Formation"
+    },
+    {
+      "nom": "Amadis",
+      "technologie": "",
+      "description": "",
+      "date": "2022",
+      "image": "amadis.png",
+      "type": "Formation"
+    },
+    {
+      "nom": "Cloth2You",
+      "technologie": "",
+      "description": "",
+      "date": "2023",
+      "image": "cloth2you.png",
+      "type": "Formation"
+    },
+    {
+      "nom": "Reader.",
+      "technologie": "",
+      "description": "",
+      "date": "2023",
+      "image": "reader.png",
+      "type": "Personnel"
+    },
+    {
+      "nom": "Models",
+      "technologie": "",
+      "description": "",
+      "date": "2024",
+      "image": "models.png",
+      "type": "Personnel"
+    }
+  ]
+}

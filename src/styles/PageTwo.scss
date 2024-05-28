@@ -6,11 +6,43 @@
   margin-top: 100vh;
 
   .background-3 {
-    position: relative;
+    position: absolute;
     overflow: hidden;
     bottom: 0;
     left: -100%;
     width: 100%;
     z-index: 1;
+    pointer-events: none;
+  }
+
+  .content-2 {
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 0;
+    bottom: 25%;
+    margin-right: 5%;
+
+    .content-2-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+      font-family: "Fontspring";
+      font-size: 3rem;
+
+      h2 {
+        margin: 0;
+        margin-block: 0;
+      }
+    }
+
+    .liste-projets {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      justify-content: space-between;
+    }
   }
 }
