@@ -1,6 +1,26 @@
 {
   "projets": [
     {
+      "nom": "cloth2you",
+      "technologie": "React, Node, Express, PostgreSQL, TailwindCSS",
+      "description": "Le projet de fin d'année du troisième semestre de BUT Informatique avait comme consigne le développement d'un site web d'enchères. Mon équipe et moi avons donc décidé de développer 'cloth2you', un site web permettant de vendre et d'acheter des vêtements faits-main. Cette plateforme a pour vocation d'être facilement utilisable, et se propose comme une alternative aux sites de revente de vêtements déjà existants.",
+      "date": "2023",
+      "image": "cloth2you.png",
+      "type": "Formation",
+      "color": "#424247",
+      "nbImages": 2
+    },
+    {
+      "nom": "One Last Hope",
+      "technologie": "Python, Pygame",
+      "description": "La Gamejam de 3ème année de BUT Informatique avait comme sujet les robots et la gravité. Mon équipe et moi avons donc décidé de développer 'One Last Hope', un jeu de plateforme dans lequel le joueur incarne un robot qui doit sauver sa planète. Ce jeu a été développé en Python, avec la bibliothèque Pygame. Avec plusieurs artefacts à récuperer le long des niveaux et une difficulté grandissante le long des niveaux, finir le jeu est réserver aux plus expérimentés. De plus, l'histoire possède des fins alternatives pour prolonger l'expérience.",
+      "date": "2023",
+      "image": "one-last-hope.png",
+      "type": "Formation",
+      "color": "#2190D7",
+      "nbImages": 3
+    },
+    {
       "nom": "Tour of Heroes",
       "technologie": "Angular",
       "description": "Dans le cadre d’un module de ma formation, j’avais pour mission de créer un site web en utilisant la technologie Angular. Ce site web, intitulé 'Tour of Heroes', permet de faire combattre des héros. Ces héros sont définis depuis des fiches permettant de modifier leurs statistiques, et de les sauvegarder dans une base de données Firebase.",
@@ -33,14 +53,6 @@
       "type": "Formation"
     },
     {
-      "nom": "Cloth2You",
-      "technologie": "",
-      "description": "",
-      "date": "2023",
-      "image": "cloth2you.png",
-      "type": "Formation"
-    },
-    {
       "nom": "Reader.",
       "technologie": "",
       "description": "",
@@ -54,6 +66,14 @@
       "description": "",
       "date": "2024",
       "image": "models.png",
+      "type": "Personnel"
+    },
+    {
+      "nom": "À venir",
+      "technologie": "",
+      "description": "",
+      "date": "2024",
+      "image": "",
       "type": "Personnel"
     }
   ]

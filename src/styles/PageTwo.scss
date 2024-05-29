@@ -16,21 +16,21 @@
   }
 
   .content-2 {
-    width: 65%;
+    width: 60%;
     display: flex;
     flex-direction: column;
     position: absolute;
     right: 0;
-    bottom: 25%;
-    margin-right: 5%;
+    top: 5%;
+    margin-right: 10%;
 
     .content-2-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       color: white;
-      font-family: "Fontspring";
-      font-size: 3rem;
+      font-family: "Satoshi";
+      font-size: 5rem;
 
       h2 {
         margin: 0;
@@ -41,8 +41,67 @@
     .liste-projets {
       display: flex;
       flex-wrap: wrap;
-      flex-direction: column;
+      flex-direction: row;
       justify-content: space-between;
+
+      .btn-projet {
+        display: flex;
+        width: 30%;
+        height: 18vh;
+        font-family: "Satoshi";
+        font-size: 1.4em;
+        background-color: white;
+        color: white;
+        border: none;
+        margin-top: 2em;
+        border-radius: 10px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        cursor: pointer;
+        transition: 0.2s ease-in-out;
+
+        &:hover {
+          transform: scale(1.05);
+        }
+      }
+    }
+  }
+}
+
+.overlay {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(226, 234, 255, 0.9);
+  z-index: 7;
+  backdrop-filter: blur(10px);
+
+  .right-arrow {
+    position: absolute;
+    width: 4em;
+    color: black;
+    cursor: pointer;
+    z-index: 10;
+    right: 30px;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+      transform: translateX(10%);
+    }
+  }
+
+  .left-arrow {
+    position: absolute;
+    width: 4em;
+    color: black;
+    cursor: pointer;
+    z-index: 10;
+    left: 30px;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+      transform: translateX(10%);
     }
   }
 }
