@@ -1,0 +1,16 @@
+{
+  "formations": [
+    {
+      "lieu": "Grenoble",
+      "etablissement": "IUT2",
+      "type": "BUT Informatique",
+      "date": "2021-2024"
+    },
+    {
+      "lieu": "Voiron",
+      "etablissement": "Lycée Edouard Herriot",
+      "type": "Baccalauréat Général",
+      "date": "2018-2021"
+    }
+  ]
+}

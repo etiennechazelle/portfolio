@@ -13,6 +13,7 @@ function PageTwo() {
   const [projets, setProjets] = useState(projets_data.projets);
   const [projetsImages, setProjetsImages] = useState([]);
   const [IdProjetsVisible, setIdProjetsVisible] = useState(null);
+  const projetRef = useRef(null);
 
   useEffect(() => {
     const imagesProjet = [];
@@ -25,7 +26,7 @@ function PageTwo() {
       }
     });
     setProjetsImages(imagesProjet);
-  }, []);
+  }, [projets]);
 
   useEffect(() => {
     const pageTwo = pageTwoRef.current;
@@ -51,19 +52,53 @@ function PageTwo() {
     });
   }, []);
 
-  function handleProjetClick(id) {
-    console.log("Projet clicked", id);
+  const handleProjetClick = (id) => {
     setIdProjetsVisible(id);
-  }
+  };
 
   const handleLeftArrowClick = () => {
-    setIdProjetsVisible((prevId) => (prevId === 0 ? projets.length - 1 : prevId - 1));
-    // animation pour l'apparition du projet
+    animateTransition("left");
   };
 
   const handleRightArrowClick = () => {
-    setIdProjetsVisible((prevId) => (prevId === projets.length - 1 ? 0 : prevId + 1));
+    animateTransition("right");
   };
+
+  const animateTransition = (direction) => {
+    const tl = gsap.timeline();
+
+    tl.to(".Projet", {
+      duration: 0.5,
+      x: direction === "left" ? "200%" : "-200%",
+      opacity: 0,
+    })
+      .add(() => {
+        let newId;
+        if (direction === "left") {
+          newId = IdProjetsVisible === 0 ? projets.length - 1 : IdProjetsVisible - 1;
+        } else {
+          newId = IdProjetsVisible === projets.length - 1 ? 0 : IdProjetsVisible + 1;
+        }
+        setIdProjetsVisible(newId);
+      })
+      .set(".Projet", { x: direction === "left" ? "-200%" : "200%", opacity: 0 })
+      .to(".Projet", {
+        duration: 0.5,
+        x: 0,
+        opacity: 1,
+      });
+  };
+
+  const getPrevProjectIndex = (index) => {
+    return index === 0 ? projets.length - 1 : index - 1;
+  };
+
+  const getNextProjectIndex = (index) => {
+    return index === projets.length - 1 ? 0 : index + 1;
+  };
+
+  const prevProjectIndex = IdProjetsVisible != null ? getPrevProjectIndex(IdProjetsVisible) : null;
+  const nextProjectIndex = IdProjetsVisible != null ? getNextProjectIndex(IdProjetsVisible) : null;
 
   return (
     <div className="PageTwo" ref={pageTwoRef}>
@@ -87,7 +122,24 @@ function PageTwo() {
       </div>
       {IdProjetsVisible != null && (
         <div className="overlay">
-          <div className="left-arrow" onClick={handleLeftArrowClick}>
+          <div className="exit">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="1.5"
+              stroke="currentColor"
+              className="w-6 h-6"
+              onClick={() => setIdProjetsVisible(null)}
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+            </svg>
+          </div>
+          <div
+            className="left-arrow"
+            onClick={handleLeftArrowClick}
+            style={{ color: prevProjectIndex != null ? projets[prevProjectIndex].color : "inherit" }}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -99,8 +151,14 @@ function PageTwo() {
               <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18" />
             </svg>
           </div>
-          <Projet projet={projets[IdProjetsVisible]} image={projetsImages[IdProjetsVisible.id]} />
-          <div className="right-arrow" onClick={handleRightArrowClick}>
+          <div className="projet-container">
+            <Projet ref={projetRef} projet={projets[IdProjetsVisible]} image={projetsImages[IdProjetsVisible]} />
+          </div>
+          <div
+            className="right-arrow"
+            onClick={handleRightArrowClick}
+            style={{ color: nextProjectIndex != null ? projets[nextProjectIndex].color : "inherit" }}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -117,4 +175,5 @@ function PageTwo() {
     </div>
   );
 }
+
 export default PageTwo;
