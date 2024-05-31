@@ -54,6 +54,12 @@ function PageTwo() {
 
   const handleProjetClick = (id) => {
     setIdProjetsVisible(id);
+    document.body.classList.add("no-scroll");
+  };
+
+  const handleCloseOverlay = () => {
+    setIdProjetsVisible(null);
+    document.body.classList.remove("no-scroll");
   };
 
   const handleLeftArrowClick = () => {
@@ -101,7 +107,7 @@ function PageTwo() {
   const nextProjectIndex = IdProjetsVisible != null ? getNextProjectIndex(IdProjetsVisible) : null;
 
   return (
-    <div className="PageTwo" ref={pageTwoRef}>
+    <div className="PageTwo" ref={pageTwoRef} id="Projets">
       <div className="background-3">
         <img src={climber} alt="Climber" />
       </div>
@@ -130,7 +136,7 @@ function PageTwo() {
               strokeWidth="1.5"
               stroke="currentColor"
               className="w-6 h-6"
-              onClick={() => setIdProjetsVisible(null)}
+              onClick={handleCloseOverlay}
             >
               <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
             </svg>

@@ -24,7 +24,7 @@ function PageThree() {
   }, [flagDisplayedId]);
 
   return (
-    <div className="PageThree">
+    <div className="PageThree" id="Contact">
       <div className="background-4">
         <img src={summit} alt="Summit" style={{ zIndex: "2" }} />
         {flagImages.map((flagImage, index) => (
@@ -36,6 +36,10 @@ function PageThree() {
             style={{ zIndex: "1" }}
           />
         ))}
+      </div>
+      <div className="liens-4">
+        <a href="https://www.linkedin.com/in/%C3%A9tienne-chazelle-18a448268/">LinkedIn</a>
+        <a href="https://github.com/etiennechazelle/">GitHub</a>
       </div>
     </div>
   );

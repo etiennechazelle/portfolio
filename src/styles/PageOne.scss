@@ -62,6 +62,44 @@
     }
   }
 
+  .tooltip {
+    border-radius: 5px;
+    padding: 10px;
+    z-index: 1000;
+    width: fit-content;
+    height: fit-content;
+    font-family: "Soulcraft";
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h2 {
+      font-size: 2.5rem;
+      margin-block: 0;
+      display: flex;
+      align-items: center;
+
+      p:last-child {
+        filter: brightness(0.85);
+      }
+    }
+
+    p {
+      margin-block: 0;
+    }
+
+    .etablissement {
+      font-size: 1rem;
+      text-justify: center;
+    }
+
+    .type-formation {
+      font-size: 1rem;
+      filter: brightness(0.85);
+    }
+  }
+
   .personne {
     position: absolute;
     bottom: 0;

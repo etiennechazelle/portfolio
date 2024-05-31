@@ -4,11 +4,14 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import mountainsImage from "../images/P2/mountains.png";
 import personne from "../images/P2/personne.png";
 import "../styles/PageOne.scss";
+import formationsData from "../data/formations.json";
 
 gsap.registerPlugin(ScrollTrigger);
 
 function PageOne() {
   const [imageHeight, setImageHeight] = useState(0);
+  const [formations, setFormations] = useState(formationsData.formations);
+  const [activeTooltip, setActiveTooltip] = useState(null);
   const imageRef = useRef(null);
   const pageRef = useRef(null);
 
@@ -88,8 +91,12 @@ function PageOne() {
     };
   }, []);
 
+  const handlePointerHover = (index) => {
+    setActiveTooltip(index);
+  };
+
   return (
-    <div className="PageOne" ref={pageRef}>
+    <div className="PageOne" ref={pageRef} id="Parcours">
       <div className="background-2">
         <svg width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
@@ -120,7 +127,14 @@ function PageOne() {
       </div>
       <div className="pointers" style={{ height: imageHeight + "px" }}>
         {pointerStyles.map((style, i) => (
-          <div key={i} className="pointer" id={"pointer-" + i} style={{ position: "absolute", ...style }}>
+          <div
+            key={i}
+            className="pointer"
+            id={"pointer-" + i}
+            style={{ position: "absolute", ...style }}
+            onMouseEnter={() => handlePointerHover(i)}
+            onMouseLeave={() => setActiveTooltip(null)}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -131,6 +145,27 @@ function PageOne() {
             >
               <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
             </svg>
+            {activeTooltip === i && (
+              <div
+                className="tooltip"
+                style={{
+                  position: "absolute",
+                  top: "50%",
+                  left: "100%",
+                  transform: `translate(${i == 0 || i == 1 ? "-200px" : "10px"}, ${i == 0 || i == 1 ? "50%" : "42%"})`,
+                  color: formations[i].color,
+                  backgroundColor: formations[i].background_color,
+                }}
+              >
+                <h2>
+                  {formations[i].date.split(" ").map((date, j) => (
+                    <p key={i}>{date}</p>
+                  ))}
+                </h2>
+                <p className="etablissement">{formations[i].etablissement + " (" + formations[i].lieu + ")"}</p>
+                <p className="type-formation">{formations[i].type}</p>
+              </div>
+            )}
           </div>
         ))}
       </div>
