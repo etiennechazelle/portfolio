@@ -1,11 +1,11 @@
 nav {
-  padding: 20px;
+  padding: 10px 20px;
   width: 100%;
   display: flex;
   justify-content: space-between;
   font-family: "Thunder";
   color: white;
-  font-size: 1.2em;
+  font-size: 1.1em;
   height: 2em;
   align-items: center;
   z-index: 50;
@@ -22,7 +22,7 @@ nav {
     align-items: center;
     gap: 1em;
     font-family: "Soulcraft";
-    font-size: 0.8rem;
+    font-size: 0.7rem;
 
     .circle {
       background: white;

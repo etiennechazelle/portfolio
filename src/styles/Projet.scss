@@ -23,6 +23,8 @@
     margin-top: 20%;
     overflow-y: scroll;
     border-radius: 50px 50px 0px 0px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 
     .projet-content-header {
       margin-top: 2em;
