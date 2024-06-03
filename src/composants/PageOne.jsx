@@ -21,6 +21,8 @@ function PageOne() {
     { top: "46.5%", left: "47.7%" },
   ];
 
+  const colorChangeDelay = [1.6, 1.55, 2.5];
+
   useEffect(() => {
     const updateImageHeight = () => {
       if (imageRef.current) {
@@ -52,7 +54,7 @@ function PageOne() {
     const timeline = gsap.timeline();
 
     timeline.to(path, {
-      duration: 10,
+      duration: 8,
       strokeDashoffset: 0,
       ease: "power2.inOut",
     });
@@ -70,6 +72,13 @@ function PageOne() {
         pin: true,
         onEnter: () => {
           timeline.play();
+          document.querySelectorAll(".pointer").forEach((pointer, i) => {
+            gsap.to(pointer, {
+              ease: "power1.in",
+              delay: colorChangeDelay[i],
+              backgroundColor: formations[2].color,
+            });
+          });
         },
       },
     });
@@ -92,7 +101,31 @@ function PageOne() {
   }, []);
 
   const handlePointerHover = (index) => {
+    const pointer = document.getElementById("pointer-" + index);
+    const svg = pointer.querySelector("svg");
+    gsap.to(pointer, {
+      backgroundColor: formations[index].background_color,
+      duration: 0.1,
+    });
+    gsap.to(svg, {
+      stroke: formations[index].color,
+      duration: 0.1,
+    });
     setActiveTooltip(index);
+  };
+
+  const handlePointerLeave = (index) => {
+    const pointer = document.getElementById("pointer-" + index);
+    const svg = pointer.querySelector("svg");
+    gsap.to(pointer, {
+      backgroundColor: formations[2].color,
+      duration: 0.1,
+    });
+    gsap.to(svg, {
+      stroke: "currentColor",
+      duration: 0.1,
+    });
+    setActiveTooltip(null);
   };
 
   return (
@@ -131,9 +164,9 @@ function PageOne() {
             key={i}
             className="pointer"
             id={"pointer-" + i}
-            style={{ position: "absolute", ...style }}
+            style={{ position: "absolute", ...style, backgroundColor: "#e6ecff" }}
             onMouseEnter={() => handlePointerHover(i)}
-            onMouseLeave={() => setActiveTooltip(null)}
+            onMouseLeave={() => handlePointerLeave(i)}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

@@ -25,44 +25,47 @@
       "technologie": "Angular",
       "description": "Dans le cadre d’un module de ma formation, j’avais pour mission de créer un site web en utilisant la technologie Angular. Ce site web, intitulé 'Tour of Heroes', permet de faire combattre des héros. Ces héros sont définis depuis des fiches permettant de modifier leurs statistiques, et de les sauvegarder dans une base de données Firebase.",
       "date": "2023",
-      "image": "tour_of_heroes.png",
-      "type": "Formation"
+      "image": "tour-of-heroes.png",
+      "type": "Formation",
+      "video": "tour-of-heroes.mp4",
+      "nbImages": 0,
+      "color": "#FF4242"
     },
     {
       "nom": "Demineur",
-      "technologie": "",
-      "description": "",
+      "technologie": "Flutter, Firebase",
+      "description": "Le démineur est le premier jeu que j'ai réalisé en utilisant la technologie Flutter. Ce jeu est une version simplifiée du démineur classique, avec plusieurs niveaux de difficulté. En relation avec une base de données Firebase, il permet de se connecter, de sauvegarder les meilleurs scores, et de constater son évolution.",
       "date": "2024",
       "image": "demineur.png",
       "type": "Formation"
     },
     {
-      "nom": "API Node",
-      "technologie": "",
-      "description": "",
+      "nom": "NBA Draft 2024",
+      "technologie": "NodeJS, React",
+      "description": "Dans le cadre d’un module du 5ème semestre de BUT, j'avais pour mission de créer un API Node, à partir d'un sujet libre. J'ai donc décidé de créer une API permettant de simuler une draft NBA. Cette API permet de créer des équipes, des joueurs, et de les associer pour simuler une draft. En bonus, j'ai aussi réalisé un front en React, pour simplifier les manipulations. Il est aussi possible de modifier les anciennes drafts jusqu'à 2019.",
       "date": "2024",
       "image": "api_node.png",
       "type": "Formation"
     },
     {
       "nom": "Amadis",
-      "technologie": "",
-      "description": "",
+      "technologie": "Java, JavaFX",
+      "description": "En fin de première année de BUT Informatique, j'ai eu l'occasion de travailler sur un projet de développement d'un site web de gestion de salle de spectacle, plus particulièrement de salles de théatre. Cette application non-communicante avait comme objectif de relier les troupes de théatre aux salles de spectacle, et de permettre aux troupes de gérer leurs représentations. Ce projet a été développé en Java, avec la bibliothèque JavaFX, et a été réalisé en groupe de 6 personnes.",
       "date": "2022",
       "image": "amadis.png",
       "type": "Formation"
     },
     {
       "nom": "Reader.",
-      "technologie": "",
-      "description": "",
+      "technologie": "React",
+      "description": "Reader. est mon premier projet personnel. Toujours en cours de développement, il est passé par de nombreuses technologies, pour finalement se faire en React. Le but de ce site et de lire des mangas, des manhwas, ainsi que tout type de BDs, à l'aide d'une interface accessible et intuitive.",
       "date": "2023",
       "image": "reader.png",
       "type": "Personnel"
     },
     {
       "nom": "Models",
-      "technologie": "",
+      "technologie": "Models est un projet personnel en cours de développement. Étant une continuation d'un projet d'API Node...",
       "description": "",
       "date": "2024",
       "image": "models.png",

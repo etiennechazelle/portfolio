@@ -1,7 +1,7 @@
 .Projet {
   z-index: 8;
   position: absolute;
-  width: 60%;
+  width: 65%;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -9,10 +9,10 @@
 
   .header-image {
     height: fit-content;
-    border-radius: 50px;
+    border-radius: 20px;
     width: 100%;
     position: absolute;
-    top: -50vh;
+    top: -60vh;
   }
 
   .projet-content {
@@ -20,9 +20,9 @@
     display: flex;
     flex-direction: column;
     flex-direction: column;
-    margin-top: 20%;
+    margin-top: 15%;
     overflow-y: scroll;
-    border-radius: 50px 50px 0px 0px;
+    border-radius: 20px 20px 0px 0px;
     -ms-overflow-style: none;
     scrollbar-width: none;
 
@@ -71,6 +71,12 @@
       width: 100%;
 
       img {
+        margin-top: 1em;
+        width: 100%;
+        border-radius: 10px;
+      }
+
+      video {
         margin-top: 1em;
         width: 100%;
         border-radius: 10px;

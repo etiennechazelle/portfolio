@@ -10,7 +10,7 @@ function Projet({ projet }) {
   const technologies = projet.technologie.split(", ");
   const projetContentRef = useRef(null);
 
-  const imagesProjet = Array.from({ length: 2 }, (_, i) =>
+  const imagesProjet = Array.from({ length: projet.nbImages }, (_, i) =>
     require(`../images/data/projets/${projet.nom.replace(/ /g, "-").toLowerCase()}/${i + 1}.png`)
   );
 
@@ -36,6 +36,12 @@ function Projet({ projet }) {
           {imagesProjet.map((image, index) => (
             <img key={index} src={image} alt={`Projet ${projet.nom} ${index + 1}`} />
           ))}
+          {projet.video && (
+            <video controls>
+              <source src={require(`../videos/${projet.video}`)} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          )}
         </div>
       </div>
     </div>
