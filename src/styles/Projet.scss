@@ -7,20 +7,28 @@
   justify-content: center;
   overflow: hidden;
 
-  .header-image {
-    height: fit-content;
-    border-radius: 20px;
-    width: 100%;
-    position: absolute;
-    top: -60vh;
+  .header-image-container {
+      border-radius: 20px;
+      width: 100%;
+      position: absolute; 
+      height: 75vh;
+      top: -60vh;
+      overflow: hidden;
+
+    .header-image {
+      object-fit: cover;
+      object-position: center;
+      width: 110%;
+    }
   }
+  
 
   .projet-content {
     width: 100%;
     display: flex;
     flex-direction: column;
     flex-direction: column;
-    margin-top: 15%;
+    margin-top: 12%;
     overflow-y: scroll;
     border-radius: 20px 20px 0px 0px;
     -ms-overflow-style: none;
@@ -82,15 +90,5 @@
         border-radius: 10px;
       }
     }
-  }
-
-  .progress-circle {
-    width: 3em;
-    height: 3em;
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    border-radius: 50%;
-    background: radial-gradient(closest-side, white 79%, transparent 80% 100%), conic-gradient(hotpink 75%, pink 0);
   }
 }
