@@ -1,12 +1,13 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.d5dd8e21.css",
-    "main.js": "/portfolio/static/js/main.cfba5362.js",
+    "main.css": "/portfolio/static/css/main.5992fc66.css",
+    "main.js": "/portfolio/static/js/main.83c68239.js",
     "static/media/tour-of-heroes.mp4": "/portfolio/static/media/tour-of-heroes.335b6d71014ad5ad4418.mp4",
+    "static/media/players.png": "/portfolio/static/media/players.d4eb799fdb02e4b2be02.png",
+    "static/media/1.png": "/portfolio/static/media/1.6aeff1f0b7ac66235ab2.png",
     "static/media/amadis.png": "/portfolio/static/media/amadis.d1cbad777a13e538f519.png",
     "static/media/background.png": "/portfolio/static/media/background.890ba5109bb332093f0f.png",
     "static/media/tour-of-heroes.png": "/portfolio/static/media/tour-of-heroes.8b9964844ebf179184cd.png",
-    "static/media/1.png": "/portfolio/static/media/1.6aeff1f0b7ac66235ab2.png",
     "static/media/one-last-hope.png": "/portfolio/static/media/one-last-hope.7c5fd93487e2f6164e16.png",
     "static/media/2.png": "/portfolio/static/media/2.5de33ca2cd72182c74f1.png",
     "static/media/CV_ETIENNE_CHAZELLE.pdf": "/portfolio/static/media/CV_ETIENNE_CHAZELLE.c44ae69520f4502bbc33.pdf",
@@ -27,11 +28,11 @@
     "static/media/personne.png": "/portfolio/static/media/personne.ac0c30e42b898fc6f090.png",
     "static/media/Fontspring.otf": "/portfolio/static/media/Fontspring.3e1109f2281ec92be428.otf",
     "index.html": "/portfolio/index.html",
-    "main.d5dd8e21.css.map": "/portfolio/static/css/main.d5dd8e21.css.map",
-    "main.cfba5362.js.map": "/portfolio/static/js/main.cfba5362.js.map"
+    "main.5992fc66.css.map": "/portfolio/static/css/main.5992fc66.css.map",
+    "main.83c68239.js.map": "/portfolio/static/js/main.83c68239.js.map"
   },
   "entrypoints": [
-    "static/css/main.d5dd8e21.css",
-    "static/js/main.cfba5362.js"
+    "static/css/main.5992fc66.css",
+    "static/js/main.83c68239.js"
   ]
 }
