@@ -21,6 +21,10 @@
       font-family: "SaoTorpes";
       line-height: 0.8;
       letter-spacing: 5px;
+
+      @media (max-width: 768px) {
+        font-size: 3rem;
+      }
     }
 
     h2 {
@@ -33,6 +37,11 @@
       font-size: 0.8rem;
       font-family: "Soulcraft";
       letter-spacing: 5px;
+
+      @media (max-width: 768px) {
+        font-size: 0.6rem;
+        top: 55%;
+      }
     }
   }
 
@@ -43,9 +52,17 @@
     overflow: hidden;
     z-index: 3;
 
+    @media screen and (max-width: 768px) {
+      bottom: -20px;
+    }
+
     img {
       object-fit: contain;
       width: 100%;
+
+      @media screen and (max-width: 768px) {
+        width: 180%;
+      }
     }
   }
 

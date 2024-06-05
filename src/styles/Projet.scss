@@ -7,13 +7,21 @@
   justify-content: center;
   overflow: hidden;
 
+  @media screen and (max-width: 768px) {
+    width: 85%;
+  }
+
   .header-image-container {
-      border-radius: 20px;
-      width: 100%;
-      position: absolute; 
-      height: 75vh;
-      top: -60vh;
-      overflow: hidden;
+    border-radius: 20px;
+    width: 100%;
+    position: absolute;
+    height: 75vh;
+    top: -60vh;
+    overflow: hidden;
+
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
 
     .header-image {
       object-fit: cover;
@@ -21,7 +29,6 @@
       width: 110%;
     }
   }
-  
 
   .projet-content {
     width: 100%;
@@ -34,6 +41,10 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
 
+    @media screen and (max-width: 768px) {
+      margin-top: 20%;
+    }
+
     .projet-content-header {
       margin-top: 2em;
       display: flex;
@@ -45,6 +56,15 @@
         font-size: 3.5em;
         margin: 0;
         text-transform: uppercase;
+
+        @media screen and (max-width: 768px) {
+          font-size: 2.5em;
+          justify-content: center;
+
+          &:last-child {
+            font-size: 1.5em;
+          }
+        }
       }
     }
 
@@ -54,6 +74,10 @@
       width: 100%;
       gap: 1em;
 
+      @media screen and (max-width: 768px) {
+        gap: 0.5em;
+      }
+
       span {
         font-family: "Soulcraft";
         font-size: 1.2em;
@@ -61,6 +85,11 @@
         padding: 0.5em 1em;
         border-radius: 10px;
         margin: 10px 0;
+
+        @media screen and (max-width: 768px) {
+          font-size: 0.8em;
+          margin: 5px 0;
+        }
       }
     }
 

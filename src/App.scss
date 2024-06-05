@@ -58,6 +58,10 @@ html {
   -ms-overflow-style: none;
   scrollbar-width: none;
 
+  @media screen and (max-width: 768px) {
+    overflow-x: hidden;
+  }
+
   body {
     overflow-x: hidden;
     margin: 0;

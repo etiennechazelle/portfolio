@@ -34,7 +34,7 @@
     {
       "nom": "Players",
       "technologie": "React, Node, MySQL",
-      "description": "Models est un projet personnel en cours de développement. Étant une continuation d'un projet d'API Node, il permet de lister des joueurs de basket-ball, et de les associer à des équipes. Ce projet est développé en React, et est en cours de développement.",
+      "description": "Players est un projet personnel en cours de développement. Étant une continuation d'un projet d'API Node, il permet de lister des joueurs de basket-ball, et de les associer à des équipes. Ce projet est développé en React, et est en cours de développement.",
       "date": "2024",
       "image": "players.png",
       "type": "Personnel",

@@ -53,6 +53,7 @@ function Home() {
         end: "bottom top",
         scrub: true,
         pin: true,
+        markers: true,
         onEnter: () => window.scrollTo(0, 0),
         onLeaveBack: () => window.scrollTo(0, 0),
       },

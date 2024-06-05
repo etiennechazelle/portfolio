@@ -14,6 +14,7 @@ function PageOne() {
   const [activeTooltip, setActiveTooltip] = useState(null);
   const imageRef = useRef(null);
   const pageRef = useRef(null);
+  const isMobile = window.innerWidth <= 768;
 
   const pointerStyles = [
     { top: "34.5%", left: "25.3%" },
@@ -180,13 +181,13 @@ function PageOne() {
             </svg>
             {activeTooltip === i && (
               <div
-                className="tooltip"
+                className={`tooltip ${isMobile ? "mobile-tooltip" : ""}`}
                 style={{
                   position: "absolute",
                   top: "50%",
                   left: "100%",
-                  transform: `translate(${i === 0 || i === 1 ? "-200px" : "10px"}, ${
-                    i === 0 || i === 1 ? "50%" : "42%"
+                  transform: `translate(${i === 0 || i === 1 || isMobile ? "-200px" : "10px"}, ${
+                    i === 0 || i === 1 || isMobile ? "50%" : "42%"
                   })`,
                   color: formations[i].color,
                   backgroundColor: formations[i].background_color,

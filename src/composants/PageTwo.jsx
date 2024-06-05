@@ -14,6 +14,7 @@ function PageTwo() {
   const [projetsImages, setProjetsImages] = useState([]);
   const [IdProjetsVisible, setIdProjetsVisible] = useState(null);
   const projetRef = useRef(null);
+  const isAnimatingRef = useRef(false);
 
   useEffect(() => {
     const imagesProjet = [];
@@ -53,24 +54,30 @@ function PageTwo() {
   }, []);
 
   const handleProjetClick = (id) => {
+    if (isAnimatingRef.current) return;
     setIdProjetsVisible(id);
     document.body.classList.add("no-scroll");
   };
 
-  const handleCloseOverlay = () => {
+  const handleCloseOverlay = (e) => {
+    e.stopPropagation();
+    e.preventDefault();
     setIdProjetsVisible(null);
     document.body.classList.remove("no-scroll");
   };
 
   const handleLeftArrowClick = () => {
+    if (isAnimatingRef.current) return;
     animateTransition("left");
   };
 
   const handleRightArrowClick = () => {
+    if (isAnimatingRef.current) return;
     animateTransition("right");
   };
 
   const animateTransition = (direction) => {
+    isAnimatingRef.current = true;
     const tl = gsap.timeline();
 
     tl.to(".Projet", {
@@ -92,6 +99,9 @@ function PageTwo() {
         duration: 0.5,
         x: 0,
         opacity: 1,
+        onComplete: () => {
+          isAnimatingRef.current = false;
+        },
       });
   };
 
@@ -105,6 +115,42 @@ function PageTwo() {
 
   const prevProjectIndex = IdProjetsVisible != null ? getPrevProjectIndex(IdProjetsVisible) : null;
   const nextProjectIndex = IdProjetsVisible != null ? getNextProjectIndex(IdProjetsVisible) : null;
+
+  useEffect(() => {
+    const overlay = document.querySelector(".Projet");
+    let startX = 0;
+    let currentX = 0;
+
+    const handleTouchStart = (e) => {
+      startX = e.touches[0].clientX;
+    };
+
+    const handleTouchMove = (e) => {
+      currentX = e.touches[0].clientX;
+    };
+
+    const handleTouchEnd = () => {
+      if (startX - currentX > 50) {
+        handleRightArrowClick();
+      } else if (currentX - startX > 50) {
+        handleLeftArrowClick();
+      }
+    };
+
+    if (overlay) {
+      overlay.addEventListener("touchstart", handleTouchStart);
+      overlay.addEventListener("touchmove", handleTouchMove);
+      overlay.addEventListener("touchend", handleTouchEnd);
+    }
+
+    return () => {
+      if (overlay) {
+        overlay.removeEventListener("touchstart", handleTouchStart);
+        overlay.removeEventListener("touchmove", handleTouchMove);
+        overlay.removeEventListener("touchend", handleTouchEnd);
+      }
+    };
+  }, [IdProjetsVisible]);
 
   return (
     <div className="PageTwo" ref={pageTwoRef} id="Projets">
@@ -136,7 +182,7 @@ function PageTwo() {
               strokeWidth="1.5"
               stroke="currentColor"
               className="w-6 h-6"
-              onClick={handleCloseOverlay}
+              onClick={(e) => handleCloseOverlay(e)}
             >
               <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
             </svg>

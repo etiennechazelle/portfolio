@@ -5,6 +5,10 @@
   position: relative;
   margin-top: 50px;
 
+  @media screen and (max-width: 768px) {
+    margin-top: 0;
+  }
+
   .background-2 {
     position: absolute;
     overflow: hidden;
@@ -12,15 +16,30 @@
     width: 100%;
     z-index: 1;
 
+    @media screen and (max-width: 768px) {
+      bottom: -5px;
+    }
+
     svg {
       width: 100%;
       height: auto;
       bottom: 3px;
       position: absolute;
+
+      @media screen and (max-width: 768px) {
+        width: 250%;
+        margin-left: -50%;
+      }
     }
 
     img {
       width: 100%;
+
+      @media screen and (max-width: 768px) {
+        object-fit: cover;
+        width: 250%;
+        margin-left: -50%;
+      }
     }
   }
 
@@ -31,6 +50,10 @@
     width: 100%;
     bottom: 0;
 
+    @media screen and (max-width: 768px) {
+      width: 250%;
+      margin-left: -50%;
+    }
     .pointer {
       height: 1.3rem;
       width: 1.3rem;
@@ -63,6 +86,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    &.mobile-tooltip {
+      position: fixed !important;
+      top: 20% !important;
+      left: 65% !important;
+      transform: translate(-50%, -50%);
+    }
 
     h2 {
       font-size: 2.5rem;
@@ -97,9 +127,18 @@
     z-index: 3;
     pointer-events: none;
 
+    @media screen and (max-width: 768px) {
+      bottom: -5px;
+    }
+
     img {
       width: 100%;
       height: auto;
+
+      @media screen and (max-width: 768px) {
+        width: 250%;
+        margin-left: -50%;
+      }
     }
   }
 }
