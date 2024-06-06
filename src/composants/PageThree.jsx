@@ -10,15 +10,21 @@ gsap.registerPlugin(ScrollTrigger);
 
 function PageThree() {
   useEffect(() => {
-    gsap.to(".liens-4", {
-      scrollTrigger: {
-        trigger: ".background-4",
-        start: "top top",
-        end: "bottom bottom",
-        scrub: 1,
-      },
-      opacity: 1,
-    });
+    const isMobile = window.innerWidth <= 768;
+
+    if (!isMobile) {
+      gsap.to(".liens-4", {
+        scrollTrigger: {
+          trigger: ".background-4",
+          start: "top top",
+          end: "bottom bottom",
+          scrub: 1,
+        },
+        opacity: 1,
+      });
+    } else {
+      document.querySelector(".liens-4").style.opacity = 1;
+    }
   }, []);
 
   return (

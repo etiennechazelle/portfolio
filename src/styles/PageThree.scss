@@ -15,8 +15,8 @@
     pointer-events: none;
 
     @media screen and (max-width: 768px) {
-      width: 300%;    
-      bottom: -50px;  
+      width: 300%;
+      bottom: -50px;
     }
 
     img {
@@ -42,8 +42,10 @@
     right: 0px;
 
     @media screen and (max-width: 768px) {
-      right: 0;   
-      justify-content: space-around;   
+      right: 0;
+      justify-content: space-around;
+      bottom: 10px;
+      top: unset;
     }
 
     a {
@@ -56,6 +58,9 @@
       @media screen and (max-width: 768px) {
         font-size: 0.8rem;
         margin: 0%;
+        background-color: #6b81bc;
+        padding: 5px 10px 3px 10px;
+        border-radius: 5px;
       }
 
       &:hover {

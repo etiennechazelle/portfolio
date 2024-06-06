@@ -10,33 +10,37 @@
   }
 
   .text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+
     h1 {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -110%);
       color: white;
       text-align: center;
-      font-size: 7rem;
+      font-size: 7vw;
       font-family: "SaoTorpes";
       line-height: 0.8;
       letter-spacing: 5px;
+      margin-block: 0;
 
       @media (max-width: 768px) {
-        font-size: 3rem;
+        font-size: 10vw;
       }
     }
 
     h2 {
-      position: absolute;
-      top: 61%;
-      left: 50%;
-      transform: translate(-50%, -150%);
       color: #bdcfff;
       text-align: center;
       font-size: 0.8rem;
       font-family: "Soulcraft";
       letter-spacing: 5px;
+      margin-block: 0;
+      margin-top: 10px;
 
       @media (max-width: 768px) {
         font-size: 0.6rem;
