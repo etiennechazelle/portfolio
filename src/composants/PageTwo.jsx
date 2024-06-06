@@ -141,6 +141,21 @@ function PageTwo() {
       overlay.addEventListener("touchstart", handleTouchStart);
       overlay.addEventListener("touchmove", handleTouchMove);
       overlay.addEventListener("touchend", handleTouchEnd);
+
+      const techno = document.querySelector(".projet-content-techno");
+      console.log(techno.scrollWidth, techno.offsetWidth);
+      if (techno.scrollWidth > techno.offsetWidth) {
+        gsap.to(".projet-content-techno span", {
+          x: -techno.scrollWidth + techno.offsetWidth,
+          duration: 5,
+          repeat: -1,
+          yoyo: true,
+          ease: "power1.inOut",
+        });
+      } else {
+        gsap.killTweensOf(".projet-content-techno span");
+        gsap.set(".projet-content-techno span", { x: 0 });
+      }
     }
 
     return () => {
