@@ -79,7 +79,7 @@ function Home() {
         <img src={planeImage} alt="Plane" className="plane" />
       </div>
       <svg width="1920" height="400" className="plane-path" style={{ opacity: 0.5 }}>
-        <path className="path" d="M0,450 Q960,50 1920,150" fill="none" stroke="white" strokeWidth={2} />
+        <path className="path" d="M0,350 Q960,50 1920,150" fill="none" stroke="white" strokeWidth={2} />
       </svg>
     </div>
   );
